@@ -3,82 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Lively Portfolio</title>
+    <title>My Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Poppins Font -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
-
         body {
             margin: 0;
-            font-family: 'Roboto Slab', serif;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: black;
+            font-family: Arial, sans-serif;
             color: white;
-        }
-
-        .content-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 10;
-            border: 2px solid #ccc; /* Changed border color to a subtle gray */
-            padding: 40px;
-            border-radius: 15px;
-            background: rgba(0, 0, 0, 0.7); /* Reduced transparency */
-            width: 60%;
-            box-sizing: border-box;
-            flex-direction: column;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        .profile {
-            margin-bottom: 20px;
-        }
-
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            border: 2px solid #ccc; /* Match border color with the container */
-            margin-bottom: 10px;
-        }
-
-        .profile p {
-            font-size: 1.3em;
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .contact p {
-            font-size: 1.4em;
-            margin: 5px 0;
-            line-height: 1.5;
-        }
-
-        .contact a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.4em;
-        }
-
-        video {
+        /* Background Video */
+        .background-video {
             position: fixed;
             top: 0;
             left: 0;
@@ -88,39 +25,160 @@
             z-index: -1;
         }
 
-        footer {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 1.2em;
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+            animation: boxIn 1s ease-in-out;
+        }
+
+        .main-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
             color: #fff;
-            z-index: 10;
+            text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500, 0 0 30px #ff6347;
+            margin-bottom: 30px;
+            animation: glowEffect 2s infinite alternate;
+        }
+
+        /* Glow Effect Animation */
+        @keyframes glowEffect {
+            0% {
+                text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500, 0 0 30px #ff6347;
+            }
+            100% {
+                text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff4500;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px; /* Increased gap for more space between buttons */
+            margin: 30px 0;
+        }
+
+        button {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            padding: 18px 40px; /* Increased padding for larger buttons */
+            font-size: 20px; /* Increased font size for a bolder look */
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+            transform: scale(1.1);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 10px #ff6347;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes boxIn {
+            from {
+                transform: scale(0.5) translateY(50%);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Background video -->
-    <video autoplay loop muted>
-        <source src="video3.mp4" type="video/mp4">
+    <!-- Background Video -->
+    <video autoplay muted loop class="background-video">
+        <source src="video4.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <div class="content-container">
-        <h1>Sudharsan</h1>
-        <h2>Freelancer: Editor | Designer | Website Creator</h2>
-        <p>"Let your creativity shine brighter than the stars!"</p>
-        <div class="contact">
-            <p>Contact me:</p>
-            <p>Phone: <a href="tel:+1234567890">9150945342</a></p>
-            <p>Email: <a href="mailto:sudharsans573@gmail.com">sudharsans573@gmail.com</a></p>
-            <p>Instagram: <a href="https://instagram.com/yourinstagram" target="_blank">@mr.sudharsan_</a></p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to My Website</h1>
+        
+        <!-- Buttons Container -->
+        <div class="button-container">
+            <button onclick="showSection('about')">About Me</button>
+            <button onclick="showSection('projects')">My Projects</button>
+            <button onclick="showSection('contact')">Contact</button>
         </div>
+
+        <!-- About Me Section -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <img src="img1.jpg" alt="My Photo">
+            <p>Hello! I am a designer and website creator with a passion for crafting innovative and user-friendly designs.</p>
+        </section>
+
+        <!-- My Projects Section -->
+        <section id="projects" class="projects">
+            <h2>My Projects</h2>
+            <div>
+                <img src="img2.jpg" alt="Project 1">
+                <p>Project 1: Designed a sleek and modern portfolio website to showcase creative works.</p>
+            </div>
+            <div>
+                <img src="img3.jpg" alt="Project 2">
+                <p>Project 2: Developed an e-commerce site with a focus on user-friendly navigation.</p>
+            </div>
+            <div>
+                <img src="img4.jpg" alt="Project 3">
+                <p>Project 3: Built a responsive blog platform with seamless mobile integration.</p>
+            </div>
+            <div>
+                <img src="img5.jpg" alt="Project 4">
+                <p>Project 4: Created a dynamic event management site with interactive features.</p>
+            </div>
+            <div>
+                <img src="img9.jpg" alt="Project 5">
+                <p>Project 5: Redesigned a corporate website to improve branding and accessibility.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <p> Contact number : 9150945342
+                Email: sudharsans573@gmail.com</p>
+            <p>Instagram: <a href="https://instagram.com/yourprofile" target="_blank" style="color: #ff6347;">@mr.sudharsan_</a></p>
+        </section>
     </div>
 
-    <footer>
-        sudharsan | All rights reserved.
-    </footer>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
+    
