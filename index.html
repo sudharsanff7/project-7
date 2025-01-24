@@ -3,182 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Poppins Font -->
+    <title>AskMe - Futuristic Website</title>
     <style>
+        /* General Styles */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             color: white;
-            text-align: center;
             overflow-x: hidden;
         }
 
-        /* Background Video */
-        .background-video {
+        body video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100vw;
+            min-height: 100vh;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* Main Content */
-        .main-content {
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            text-align: center;
             position: relative;
             z-index: 1;
-            padding: 50px;
-            animation: boxIn 1s ease-in-out;
         }
 
-        .main-content h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            color: #fff;
-            text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500, 0 0 30px #ff6347;
-            margin-bottom: 30px;
-            animation: glowEffect 2s infinite alternate;
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* Glow Effect Animation */
-        @keyframes glowEffect {
-            0% {
-                text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500, 0 0 30px #ff6347;
-            }
-            100% {
-                text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff4500;
-            }
-        }
-
-        .button-container {
+        .cards {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px; /* Increased gap for more space between buttons */
-            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
         }
 
-        button {
-            background-color: #ff6347;
-            border: none;
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            width: 300px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .cta {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: #4CAF50;
             color: white;
-            padding: 18px 40px; /* Increased padding for larger buttons */
-            font-size: 20px; /* Increased font size for a bolder look */
-            cursor: pointer;
+            border: none;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
         }
 
-        button:hover {
-            background-color: #ff4500;
-            transform: scale(1.1);
+        .cta:hover {
+            background: #45a049;
         }
 
-        button:focus {
-            outline: none;
-            box-shadow: 0 0 10px #ff6347;
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
         }
 
-        section {
-            display: none;
-            padding: 20px;
-            animation: fadeIn 0.5s ease-in-out;
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
         }
 
-        section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes boxIn {
-            from {
-                transform: scale(0.5) translateY(50%);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <!-- Background Video -->
-    <video autoplay muted loop class="background-video">
-        <source src="video4.mp4" type="video/mp4">
+    <video autoplay muted loop>
+        <source src="video7.mp4"video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to My Website</h1>
-        
-        <!-- Buttons Container -->
-        <div class="button-container">
-            <button onclick="showSection('about')">About Me</button>
-            <button onclick="showSection('projects')">My Projects</button>
-            <button onclick="showSection('contact')">Contact</button>
+    <nav>
+        <div>AskMe</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
         </div>
+    </nav>
 
-        <!-- About Me Section -->
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <img src="img1.jpg" alt="My Photo">
-            <p>Hello! I am a designer and website creator with a passion for crafting innovative and user-friendly designs.</p>
-        </section>
+    <header class="section">
+        <h1>Welcome to AskMe</h1>
+        <p>Your gateway to a futuristic experience to do your work as project</p>
+    </header>
 
-        <!-- My Projects Section -->
-        <section id="projects" class="projects">
-            <h2>My Projects</h2>
-            <div>
-                <img src="img2.jpg" alt="Project 1">
-                <p>Project 1: Designed a sleek and modern portfolio website to showcase creative works.</p>
-            </div>
-            <div>
-                <img src="img3.jpg" alt="Project 2">
-                <p>Project 2: Developed an e-commerce site with a focus on user-friendly navigation.</p>
-            </div>
-            <div>
-                <img src="img4.jpg" alt="Project 3">
-                <p>Project 3: Built a responsive blog platform with seamless mobile integration.</p>
-            </div>
-            <div>
-                <img src="img5.jpg" alt="Project 4">
-                <p>Project 4: Created a dynamic event management site with interactive features.</p>
-            </div>
-            <div>
-                <img src="img9.jpg" alt="Project 5">
-                <p>Project 5: Redesigned a corporate website to improve branding and accessibility.</p>
-            </div>
-        </section>
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Welcome to my website! I’m a versatile editor, designer, and website creator dedicated to bringing your ideas to life.
+             Whether you need captivating videos, stunning graphic designs, or a user-friendly website tailored to your needs—I've got you covered. 
+             Let’s collaborate to create impactful solutions that elevate your brand and help your business grow.</p>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <p> Contact number : 9150945342
-                Email: sudharsans573@gmail.com</p>
-            <p>Instagram: <a href="https://instagram.com/yourprofile" target="_blank" style="color: #ff6347;">@mr.sudharsan_</a></p>
-        </section>
-    </div>
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>AI Assistance</h3>
+                <p>24/7 intelligent support tailored to your needs.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Solutions</h3>
+                <p>Innovative tools designed for your unique requirements.</p>
+            </div>
+            <div class="card">
+                <h3>Futuristic Designs</h3>
+                <p>Stay ahead with our modern and sleek designs.</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-    </script>
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us at <a href="mailto:sudharsans573@gmail.com">sudharsans573@gmail.com</a></p>
+        <p>Contact Number: <a href="tel:+1234567890">9150945342</a></p>
+        <p>Follow us on Instagram: <a href="https://instagram.com/your_instagram_handle" target="_blank">@mr.sudharsan_</a></p>
+        <button class="cta">Get Started</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AskMe. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
 </body>
 </html>
-    
